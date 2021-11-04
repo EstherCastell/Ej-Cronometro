@@ -23,6 +23,16 @@ function startChron() {
     renderTick();
   }, 1000);
 }
+
+function resetChron() {
+  if (isRun == true) {
+    clearInterval(interval);
+    isRun = false;
+  }
+  tick = 0;
+  document.getElementById("tick").innerHTML = "0";
+}
+
 function renderTick() {
   document.getElementById("tick").innerHTML = tick;
 }
@@ -32,4 +42,6 @@ function addEvents() {
   startButton.EventListener("click", startChron);
   const stopButton = document.getElementById("stopChronButton");
   stopButton.addEventListener("click", stopChron);
+  const resetButton = document.getElementById("resetChronButton");
+  resetButton.addEventListener("click", resetChron);
 }
